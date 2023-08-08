@@ -1,0 +1,17 @@
+= form_with model: food, local: true do |f|
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control', id: 'food_name'
+  .form-group
+    = f.label :number
+    = f.number_field :number, class: 'form-control', id: 'food_number'
+  .form-group
+    = f.label :unit
+    = f.text_field :unit, class: 'form-control', id: 'food_unit'
+  .form-group
+    = f.label :purchase
+    = f.date_field :purchase, class: 'form-control', id: 'food_purchase'
+  .form-group
+    = f.label :description
+    = f.text_area :description, class: 'form-control', id: 'food_description'
+  = f.submit nil, class: 'btn btn-primary'

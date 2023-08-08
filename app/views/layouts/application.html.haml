@@ -9,10 +9,15 @@
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     = stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    - if flash[:notice]
-      %p
-        Notice: #{flash[:notice]}
-    - if flash[:alert]
+    -# - if flash[:notice]
+    -#   %p
+    -#     Notice: #{flash[:notice]}
+    -# - if flash[:alert]
       %p
         Alert: #{flash[:alert]}
-    = yield
+    %nav.navbar.navbar-light.bg-light
+      %a.navbar-brand{href: "/"} My Fridge
+    .container
+      - if flash.notice.present?
+        .alert.alert-success= flash.notice
+      = yield

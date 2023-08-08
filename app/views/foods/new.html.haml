@@ -1,0 +1,6 @@
+%h1 食品の新規登録
+
+.nav.justify-content-end
+  = link_to '一覧', foods_path, class: 'nav-link'
+
+= render partial: 'form', locals: { food: @food }

@@ -1,0 +1,24 @@
+%h1 食品の詳細
+
+.nav.justify-content-end
+  = link_to '一覧', foods_path, class: 'nav-link'
+%table.table.table-hover
+  %tbody
+    %tr
+      %th= Food.human_attribute_name(:name)
+      %td= @food.name
+    %tr
+      %th= Food.human_attribute_name(:number)
+      %td= @food.number
+    %tr
+      %th= Food.human_attribute_name(:unit)
+      %td= @food.unit
+    %tr
+      %th= Food.human_attribute_name(:description)
+      %td= simple_format(h(@food.description), {}, sanitize: false, wrapper_tag: "div")
+    %tr
+      %th= Food.human_attribute_name(:purchase)
+      %td= @food.purchase
+
+= link_to '編集', edit_food_path(@food), class: 'btn btn-primary mr-3'
+= link_to '削除', @food, method: :delete, data: { confirm: "食品「#{@food.name}」を削除します。よろしいですか？" }, class: 'btn btn-danger'

@@ -43,6 +43,7 @@ group :development do
   gem 'pry-byebug'
   gem 'annotate'
   gem 'erb2haml'
+  gem 'better_errors'
 end
 
 group :test do

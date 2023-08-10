@@ -1,4 +1,5 @@
 class FoodsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   def index
     @foods = Food.all
   end
@@ -8,27 +9,27 @@ class FoodsController < ApplicationController
   end
 
   def new
-    @food = Food.new
+    @food = current_user.foods.build
   end
 
   def create
-    food = Food.new(food_params)
+    food = current_user.foods.build(food_params)
     food.save!
     redirect_to foods_url, notice: "新しい食品「#{food.name}」を登録しました"
   end
 
   def edit
-    @food = Food.find(params[:id])
+    @food = current_user.foods.find(params[:id])
   end
 
   def update
-    food = Food.find(params[:id])
+    food = current_user.foods.find(params[:id])
     food.update!(food_params)
     redirect_to foods_url, notice: "食品「#{food.name}」を更新しました。"
   end
 
   def destroy
-    food = Food.find(params[:id])
+    food = current_user.foods.find(params[:id])
     food.destroy
     redirect_to foods_url, notice: "食品「#{food.name}」を削除しました。"
   end
@@ -36,6 +37,6 @@ class FoodsController < ApplicationController
   private
 
   def food_params
-    params.require(:food).permit(:name, :number, :unit, :purchase, :description)
+    params.require(:food).permit(:name, :number, :unit, :location, :purchase, :description)
   end
 end

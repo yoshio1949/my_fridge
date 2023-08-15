@@ -9,6 +9,11 @@
     = f.label :unit
     = f.text_field :unit, class: 'form-control', id: 'food_unit'
   .form-group
+    = f.radio_button :location, :refrigerated
+    = f.label :location_refrigerated, "冷蔵"
+    = f.radio_button :location, :frozen
+    = f.label :location_frozen, "冷凍"
+  .form-group
     = f.label :purchase
     = f.date_field :purchase, class: 'form-control', id: 'food_purchase'
   .form-group

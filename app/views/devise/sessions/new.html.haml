@@ -1,16 +1,16 @@
 %h2= t('.sign_in')
 = link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
+= form_with model: @user, url: user_registration_path do |f|
+  .field.form-group
     = f.label :email
     %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
+    = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Enter Email'
+  .field.form-group
     = f.label :password
     %br/
-    = f.password_field :password, autocomplete: "current-password"
+    = f.password_field :password, autocomplete: "current-password", class: 'form-control', placeholder: 'Password'
   - if devise_mapping.rememberable?
-    .field
+    .field.form-group
       = f.check_box :remember_me
       = f.label :remember_me
   .actions

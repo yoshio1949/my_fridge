@@ -17,3 +17,4 @@
   - resource_class.omniauth_providers.each do |provider|
     = button_to t('.sign_in_with_provider', provider: OmniAuth::Utils.camelize(provider)), omniauth_authorize_path(resource_name, provider), data: { turbo: false }
     %br/
+

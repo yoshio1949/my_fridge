@@ -1,0 +1,25 @@
+// Place all the styles related to the top controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+// .top-image {
+//   background-image: image-url('clay-banks-mIghSJJfWOc-unsplash.jpg');
+//   background-size: cover;
+//   background-repeat: no-repeat;
+//   // background-color: aqua;
+//   height: 100vh;
+//   width: 100%;
+//   filter: blur(3px);
+// }
+
+.top-image {
+  background-attachment: fixed;
+  background-image: image-url('clay-banks-mIghSJJfWOc-unsplash.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  /*中に入るもの（テキスト）を縦横中央に配置*/
+}

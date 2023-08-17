@@ -1,0 +1,23 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title MyFridge
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  %body.top-image.d-flex.flex-column.justify-content-center.align-items-center
+    - if flash.notice.present?
+      .alert.alert-success
+        = flash.notice
+        %button.close{"data-dismiss" => "alert", type: "button"} &times;
+    .top-text.text-light.text-center.mb-5
+      %h1.display-1.font-weight-bold My Fridge
+      %h4 冷蔵庫の中身をWebで管理
+    .justify-content-center.mt-5
+      = link_to 'ログイン', new_user_session_path, class: 'mr-3 btn btn-light'
+      = link_to 'サインアップ', new_user_registration_path, class: 'btn btn-light'
+    .justify-content-center.mt-5
+      = link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: 'btn btn-light'

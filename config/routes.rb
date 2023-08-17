@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'foods#index'
+  root 'top#index'
   resources :foods
 
   devise_for :users, controllers: {

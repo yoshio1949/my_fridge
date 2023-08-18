@@ -2,7 +2,7 @@
 
 .nav.justify-content-end
   = link_to '一覧', foods_path, class: 'nav-link'
-%table.table.table-hover
+%table.table
   %tbody
     %tr
       %th= Food.human_attribute_name(:name)

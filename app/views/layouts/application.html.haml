@@ -8,6 +8,7 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     = stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'foods/index'
   %body
     -# - if flash[:notice]
     -#   %p
@@ -16,7 +17,10 @@
       %p
         Alert: #{flash[:alert]}
     %nav.navbar.navbar-expand-lg.navbar-light.bg-light
-      = link_to 'My Fridge', foods_path, class: 'navbar-brand'
+      - if user_signed_in?
+        = link_to 'My Fridge', foods_path, class: 'navbar-brand'
+      - else
+        = link_to 'My Fridge', root_path, class: 'navbar-brand'
       %button.navbar-toggler{"aria-controls" => "navbarNavDropdown", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarNavDropdown", "data-toggle" => "collapse", :type => "button"}
         %span.navbar-toggler-icon
       #navbarNavDropdown.collapse.navbar-collapse.container

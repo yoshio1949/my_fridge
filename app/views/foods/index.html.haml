@@ -5,18 +5,18 @@
 %table.table.table-hover
   %thead.thead-default.thead-light
     %tr.row
-      %th.col-2= Food.human_attribute_name(:name)
-      %th.col-1= Food.human_attribute_name(:number)
-      %th.col-1= Food.human_attribute_name(:unit)
-      %th.col-2
-      %th.col-2= Food.human_attribute_name(:name)
-      %th.col-1= Food.human_attribute_name(:number)
-      %th.col-1= Food.human_attribute_name(:unit)
-      %th.col-2
+      %th.col-4.col-lg-2= Food.human_attribute_name(:name)
+      %th.col-2.col-lg-1= Food.human_attribute_name(:number)
+      %th.col-2.col-lg-1= Food.human_attribute_name(:unit)
+      %th.col-4.col-lg-2
+      %th.col-2.d-none.d-lg-block= Food.human_attribute_name(:name)
+      %th.col-1.d-none.d-lg-block= Food.human_attribute_name(:number)
+      %th.col-1.d-none.d-lg-block= Food.human_attribute_name(:unit)
+      %th.col-2.d-none.d-lg-block
   %tbody.w-100.row
     - @foods.each do |food|
       - if food.location == 'refrigerated'
-        %tr.col-6.row.pointer{"data-href": food_path(food)}
+        %tr.col-12.col-lg-6.row.pointer{"data-href": food_path(food)}
           %td.col-4= food.name
           %td.col-2= food.number
           %td.col-2= food.unit
@@ -29,18 +29,18 @@
 %table.table.table-hover
   %thead.thead-default.thead-light
     %tr.row
-      %th.col-2= Food.human_attribute_name(:name)
-      %th.col-1= Food.human_attribute_name(:number)
-      %th.col-1= Food.human_attribute_name(:unit)
-      %th.col-2
-      %th.col-2= Food.human_attribute_name(:name)
-      %th.col-1= Food.human_attribute_name(:number)
-      %th.col-1= Food.human_attribute_name(:unit)
-      %th.col-2
+      %th.col-4.col-lg-2= Food.human_attribute_name(:name)
+      %th.col-2.col-lg-1= Food.human_attribute_name(:number)
+      %th.col-2.col-lg-1= Food.human_attribute_name(:unit)
+      %th.col-4.col-lg-2
+      %th.col-2.d-none.d-lg-block= Food.human_attribute_name(:name)
+      %th.col-1.d-none.d-lg-block= Food.human_attribute_name(:number)
+      %th.col-1.d-none.d-lg-block= Food.human_attribute_name(:unit)
+      %th.col-2.d-none.d-lg-block
   %tbody.w-100.row
     - @foods.each do |food|
       - if food.location == 'frozen'
-        %tr.col-6.row.pointer{"data-href": food_path(food)}
+        %tr.col-12.col-lg-6.row.pointer{"data-href": food_path(food)}
           %td.col-4= link_to food.name, food
           %td.col-2= food.number
           %td.col-2= food.unit

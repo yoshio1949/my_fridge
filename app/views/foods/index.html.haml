@@ -1,43 +1,51 @@
-%h1 食材一覧
-
-= link_to '新規登録', new_food_path, class: 'btn btn-light'
+= link_to '新規登録', new_food_path, class: 'btn btn-light mt-3'
 
 .mb-3
 %h1 冷蔵
 %table.table.table-hover
-  %thead.thead-default
-    %tr
-      %th= Food.human_attribute_name(:name)
-      %th= Food.human_attribute_name(:number)
-      %th= Food.human_attribute_name(:unit)
-      %th
-  %tbody
+  %thead.thead-default.thead-light
+    %tr.row
+      %th.col-2= Food.human_attribute_name(:name)
+      %th.col-1= Food.human_attribute_name(:number)
+      %th.col-1= Food.human_attribute_name(:unit)
+      %th.col-2
+      %th.col-2= Food.human_attribute_name(:name)
+      %th.col-1= Food.human_attribute_name(:number)
+      %th.col-1= Food.human_attribute_name(:unit)
+      %th.col-2
+  %tbody.w-100.row
     - @foods.each do |food|
       - if food.location == 'refrigerated'
-        %tr.pointer{"data-href": food_path(food)}
-          %td= food.name
-          %td= food.number
-          %td= food.unit
-          %td.text-right
-            = link_to edit_food_path(food), class: 'btn btn-light mr-3' do
+        %tr.col-6.row.pointer{"data-href": food_path(food)}
+          %td.col-4= food.name
+          %td.col-2= food.number
+          %td.col-2= food.unit
+          %td.col-4.text-right
+            = link_to edit_food_path(food), class: 'btn btn-secondary mr-3' do
               %i.fa-solid.fa-pen.fa-1x
             = link_to food, method: :delete, data: { confirm: "食品「#{food.name}」を削除します。よろしいですか？" }, class: 'btn btn-danger' do
               %i.fa-solid.fa-trash-can.fa-1x
 %h1 冷凍
 %table.table.table-hover
-  %thead.thead-default
-    %tr
-      %th= Food.human_attribute_name(:name)
-      %th= Food.human_attribute_name(:number)
-      %th= Food.human_attribute_name(:unit)
-      %th
-  %tbody
+  %thead.thead-default.thead-light
+    %tr.row
+      %th.col-2= Food.human_attribute_name(:name)
+      %th.col-1= Food.human_attribute_name(:number)
+      %th.col-1= Food.human_attribute_name(:unit)
+      %th.col-2
+      %th.col-2= Food.human_attribute_name(:name)
+      %th.col-1= Food.human_attribute_name(:number)
+      %th.col-1= Food.human_attribute_name(:unit)
+      %th.col-2
+  %tbody.w-100.row
     - @foods.each do |food|
       - if food.location == 'frozen'
-        %tr.pointer{"data-href": food_path(food)}
-          %td= link_to food.name, food
-          %td= food.number
-          %td= food.unit
-          %td.text-right
-            = link_to '編集', edit_food_path(food), class: 'btn btn-primary mr-3'
-            = link_to '削除', food, method: :delete, data: { confirm: "食品「#{food.name}」を削除します。よろしいですか？" }, class: 'btn btn-danger'
+        %tr.col-6.row.pointer{"data-href": food_path(food)}
+          %td.col-4= link_to food.name, food
+          %td.col-2= food.number
+          %td.col-2= food.unit
+          %td.col-4.text-right
+            = link_to edit_food_path(food), class: 'btn btn-secondary mr-3' do
+              %i.fa-solid.fa-pen.fa-1x
+            = link_to food, method: :delete, data: { confirm: "食品「#{food.name}」を削除します。よろしいですか？" }, class: 'btn btn-danger' do
+              %i.fa-solid.fa-trash-can.fa-1x

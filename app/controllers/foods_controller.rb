@@ -1,5 +1,6 @@
 class FoodsController < ApplicationController
   before_action :authenticate_user!, only: [:index, :new, :create, :edit, :update, :destroy]
+
   def index
     @foods = current_user.foods
   end
@@ -13,9 +14,12 @@ class FoodsController < ApplicationController
   end
 
   def create
-    food = current_user.foods.build(food_params)
-    food.save!
-    redirect_to foods_url, notice: "新しい食品「#{food.name}」を登録しました"
+    @food = current_user.foods.build(food_params)
+    if @food.save
+      redirect_to foods_url, notice: "新しい食品「#{@food.name}」を登録しました"
+    else
+      render :new
+    end
   end
 
   def edit
@@ -23,9 +27,12 @@ class FoodsController < ApplicationController
   end
 
   def update
-    food = current_user.foods.find(params[:id])
-    food.update!(food_params)
-    redirect_to foods_url, notice: "食品「#{food.name}」を更新しました。"
+    @food = current_user.foods.find(params[:id])
+    if @food.update(food_params)
+      redirect_to foods_url, notice: "食品「#{@food.name}」を更新しました。"
+    else
+      render :new
+    end
   end
 
   def destroy

@@ -19,4 +19,7 @@
 #
 class Food < ApplicationRecord
   belongs_to :user
+
+  validates :name, :number, :unit, :purchase, :location, presence: true
+
 end

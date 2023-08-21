@@ -1,5 +1,9 @@
 %h1 食品の編集
 
+%Ul
+  - @food.errors.full_messages.each do |message|
+    %li= message
+
 .nav.justify-content-end
   = link_to '一覧', foods_path, class: 'nav-link'
 

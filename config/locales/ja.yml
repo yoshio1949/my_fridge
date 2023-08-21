@@ -15,6 +15,7 @@ ja:
         number: 数量
         unit: 単位
         purchase: 購入日
+        location: 保存場所
         description: 詳しい説明（購入店など）
         created_at: 登録日時
         updated_at: 更新日時

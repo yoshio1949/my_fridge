@@ -2,6 +2,7 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1"}/
     %title MyFridge
     = csrf_meta_tags
     = csp_meta_tag
@@ -10,28 +11,21 @@
     = stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'foods/index'
   %body
-    -# - if flash[:notice]
-    -#   %p
-    -#     Notice: #{flash[:notice]}
-    -# - if flash[:alert]
-      %p
-        Alert: #{flash[:alert]}
     %nav.navbar.navbar-expand-lg.navbar-light.bg-light
       - if user_signed_in?
         = link_to 'My Fridge', foods_path, class: 'navbar-brand'
       - else
         = link_to 'My Fridge', root_path, class: 'navbar-brand'
-      %button.navbar-toggler{"aria-controls" => "navbarNavDropdown", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarNavDropdown", "data-toggle" => "collapse", :type => "button"}
+      %button.navbar-toggler{"aria-controls" => "navbarNavAltMarkup", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarNavAltMarkup", "data-toggle" => "collapse", type: "button"}
         %span.navbar-toggler-icon
-      #navbarNavDropdown.collapse.navbar-collapse.container
-        %ul.navbar-nav.ml-auto.mr-5.row
-          %li.nav-item.dropdown.col
-            %a#navbarDropdownMenuLink.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"} Menu
-            .dropdown-menu{"aria-labelledby" => "navbarDropdownMenuLink"}
-              - if user_signed_in?
-                = link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete' }, class:  'dropdown-item'
-              - else
-                = link_to 'ログイン', new_user_session_path, class: 'dropdown-item'
+      #navbarNavAltMarkup.collapse.navbar-collapse
+        .navbar-nav.ml-auto.mr-lg-5
+          .nav-item.ml-auto.mr-lg-2 Memo
+          .nav-item.ml-auto
+            - if user_signed_in?
+              = link_to 'Logout', destroy_user_session_path, data: { method: 'delete' }
+            - else
+              = link_to 'Login', new_user_session_path
     .container
       - if flash.notice.present?
         .alert.alert-success

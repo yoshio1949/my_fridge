@@ -93,10 +93,16 @@ GEM
     devise-i18n (1.11.0)
       devise (>= 4.9.0)
     devise-i18n-views (0.3.7)
+    diff-lcs (1.5.0)
     erb2haml (0.1.5)
       html2haml
     erubi (1.12.0)
     erubis (2.7.0)
+    factory_bot (6.2.1)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.2.0)
+      factory_bot (~> 6.2.0)
+      railties (>= 5.0.0)
     ffi (1.15.5)
     globalid (1.1.0)
       activesupport (>= 5.0)
@@ -207,6 +213,23 @@ GEM
       railties (>= 5.2)
     rexml (3.2.6)
     rouge (4.1.3)
+    rspec-core (3.9.3)
+      rspec-support (~> 3.9.3)
+    rspec-expectations (3.9.4)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.9.0)
+    rspec-mocks (3.9.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.9.0)
+    rspec-rails (3.9.1)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec-core (~> 3.9.0)
+      rspec-expectations (~> 3.9.0)
+      rspec-mocks (~> 3.9.0)
+      rspec-support (~> 3.9.0)
+    rspec-support (3.9.4)
     ruby_parser (3.20.3)
       sexp_processor (~> 4.16)
     rubyzip (2.3.2)
@@ -285,6 +308,7 @@ DEPENDENCIES
   devise-i18n
   devise-i18n-views
   erb2haml
+  factory_bot_rails
   hamlit
   jbuilder (~> 2.7)
   listen (~> 3.2)
@@ -294,6 +318,7 @@ DEPENDENCIES
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.4)
   rails-i18n (~> 6.0.0)
+  rspec-rails
   sass-rails (>= 6)
   selenium-webdriver
   spring
